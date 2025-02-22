@@ -4,7 +4,7 @@
 local_ip=$(ip addr show $(ip route | awk '/default/ { print $5 }') | grep "inet" | head -n 1 | awk '/inet/ {print $2}' | cut -d '/' -f1)
 
 #Detection Portion
-inotifywait -m -r -e modify /etc /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin /root
+inotifywait -m -r -e modify /etc /bin /sbin /usr/bin /usr/sbin /usr/local/bin /usr/local/sbin /root |
 
 #Log Portion
 while read -r path action file; do
